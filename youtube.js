@@ -354,13 +354,13 @@ function onElementInserted(containerSelector, callback) {
 
 }
 
-
+/*
 onElementInserted(".yt-live-chat-item-list-renderer#items", function(element) {
   //console.log("New dom element inserted", element.tagName);
   // Check for highlight words
-  var chattext = $(element).find("#message").text();
-  var chatWords = chattext.split(" ");
-  var highlights = chatWords.filter(value => highlightWords.includes(value.toLowerCase().replace(/[^a-z0-9]/gi, '')));
+  //var chattext = $(element).find("#message").text();
+  //var chatWords = chattext.split(" ");
+  //var highlights = chatWords.filter(value => highlightWords.includes(value.toLowerCase().replace(/[^a-z0-9]/gi, '')));
   
   $(element).removeClass("shown-comment");
   if (highlights.length > 0) {
@@ -369,4 +369,4 @@ onElementInserted(".yt-live-chat-item-list-renderer#items", function(element) {
   // Remove moderation menu for chat line
   $(element).find("#menu").remove();
 });
-
+*/
