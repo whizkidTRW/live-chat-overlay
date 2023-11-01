@@ -268,8 +268,8 @@ $("#pop-out-button").click(function(e){
     }
   }
 
-  $("#pop-out-url").val(remoteWindowURL+"#"+sessionID);
-  $("#pop-out-url").parent().removeClass("hidden");
+  //$("#pop-out-url").val(remoteWindowURL+"#"+sessionID);
+  //$("#pop-out-url").parent().removeClass("hidden");
 
   $("highlight-chat").remove();
   $("body").removeClass("inline-chat");
@@ -290,7 +290,8 @@ $(document).keyup(function(e) {
 });
 
 $(function(){
-  var url = remoteServerURL+"?v="+videoID+"&id="+sessionID;
+  //var url = remoteServerURL+"?v="+videoID+"&id="+sessionID;
+  var url = remoteServerURL;
   console.log(`Opening ${url}`);
   
   webSocket = new WebSocket(url);
