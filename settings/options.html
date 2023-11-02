@@ -42,7 +42,6 @@
   </style>
 </head>
 <body>
-
   <p>Customize the colors of the live chat overlay. Enter the <a href="https://www.google.com/search?q=hex+color+picker">hex codes</a> of the colors you'd like to use. Remember that full black #000 will be keyed out. You can delete a value to reset it to the default.</p>
   <ul>
     <li>Black: #000</li>
@@ -51,13 +50,6 @@
   </ul>
 
   <form>
-    <div class="section">
-      <div class="setting">
-        <label>Highlight Words</label>
-        <div>Enter a list of comma-separated words that will be highlighted in the chat</div>
-        <input type="text" class="text" id="highlight-words">
-      </div>
-    </div>
     <div class="section">
       <div class="setting">
         <label>Background Color (type <code>transparent</code> for use in OBS)</label>
@@ -108,20 +100,8 @@
     </div>
     <div class="section">
       <div class="setting">
-        <label>Popout Chat URL</label>
-        <input type="url" class="text" id="popout-url">
-      </div>
-      <div class="setting">
         <label>Remote Server URL</label>
         <input type="url" class="text" id="server-url">
-      </div>
-      <div class="setting">
-        <input type="checkbox" class="checkbox" id="persistent-session-id">
-        <label for "persistent-session-id">Persistent Session ID</label>
-        <div class="setting" id="toggle-persistent">
-          <label>Session ID (up to 10 alphanumeric characters)</label>
-          <input type="text" pattern="[a-zA-Z0-9]+" maxlength="10" class="text" id="session-id">
-        </div>
       </div>
     </div>
     <div class="section">
@@ -149,7 +129,5 @@
   </form>
 
   <script src="options.js"></script>
-
 </body>
-
 </html>

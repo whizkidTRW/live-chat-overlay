@@ -1,21 +1,3 @@
-function generateSessionID(){
-  var text = "";
-  var chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789";
-  for (var i = 0; i < 10; i++){
-    text += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return text;
-};
-
-function toggleSessionID() {
-  if (this.checked) {
-     document.querySelector("#session-id").value = generateSessionID();
-  } else {
-     document.querySelector("#session-id").value = "";
-  }
-}
-
-
 function saveOptions(e) {
   e.preventDefault();
   chrome.storage.sync.set({
@@ -31,13 +13,9 @@ function saveOptions(e) {
     authorAvatarOverlayOpacity: document.querySelector("#author-avatar-overlay-opacity").value,
     authorColor: document.querySelector("#author-color").value,
     fontFamily: document.querySelector("#font-family").value,
-    highlightWords: document.querySelector("#highlight-words").value.toLowerCase().replace(/[^a-z0-9, ]/gi, '').split(",").map(e => e.trim()),
     showOnlyFirstName: document.querySelector("#firstname").checked,
     autoHideSeconds: document.querySelector("#auto-hide-seconds").value,
-    popoutURL: document.querySelector("#popout-url").value,
-    serverURL: document.querySelector("#server-url").value,
-    persistentSessionID: document.querySelector("#persistent-session-id").checked,
-    sessionID: document.querySelector("#session-id").value
+    serverURL: document.querySelector("#server-url").value
   });
 }
 
@@ -59,14 +37,8 @@ function restoreOptions() {
     document.querySelector("#font-family").value = result.fontFamily || "Avenir Next, Helvetica, Geneva, Verdana, Arial, sans-serif";
     document.querySelector("#firstname").checked = result.showOnlyFirstName || false;
     document.querySelector("#auto-hide-seconds").value = result.autoHideSeconds || 0;
-    document.querySelector("#highlight-words").value = result.highlightWords.join(", ") || "q, question";
-    document.querySelector("#popout-url").value = result.popoutURL || "https://chat.aaronpk.tv/overlay/";
-    document.querySelector("#server-url").value = result.serverURL || "https://chat.aaronpk.tv/overlay/pub";
-    document.querySelector("#persistent-session-id").checked = result.persistentSessionID || false;
-    document.querySelector("#session-id").value = result.sessionID || "";
+    document.querySelector("#server-url").value = result.serverURL || "wss://localhost:8443/";
   });
-
-  document.querySelector("#persistent-session-id").addEventListener("change", toggleSessionID);
 }
 
 document.addEventListener("DOMContentLoaded", restoreOptions);

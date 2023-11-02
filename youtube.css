@@ -1,6 +1,6 @@
 :root {
     /* basic colors */
-    --keyer-bg-color: #000; /* change for a chroma key if you want, beware profile avatars may key out */
+    --keyer-bg-color: #1f1f1f; /* change for a chroma key if you want, beware profile avatars may key out */
     --comment-color: #fff;
     --comment-bg-color: #222; /* needs to be slightly above black to not get keyed out */
     --comment-border-radius: 0px;
@@ -13,17 +13,7 @@
     --author-avatar-size: 128px;
     --author-font-size: 30px;
     --author-avatar-overlay-opacity: 0.1;
-    /* donation/superchat specific */
-    --donation-color: #5a4211;
-    --donation-bg-color: #fff;
-    --donation-gradient-stop0: #BF953F;
-    --donation-gradient-stop1: #ede599;
-    --donation-gradient-stop2: #B38728;
-    --donation-label-color: #fff;
-    --donation-label-text: 'SUPERCHAT';
-    --donation-shadow-color: #fff;
-
-    --active-comment-bg-color: #90dd91;
+    --active-comment-bg-color: #023402;
     --shown-comment-bg-color: #555555;
     --highlighted-comment-bg-color: #f0f07d;
 
@@ -47,10 +37,6 @@
 
 body {
     background-color: var(--keyer-bg-color);
-}
-body.inline-chat yt-live-chat-app {
-    margin-bottom: var(--comment-area-height);
-    height: calc(100vh - var(--comment-area-height)) !important;
 }
 .btn-clear {
     position: absolute;
@@ -99,223 +85,6 @@ yt-live-chat-text-message-renderer.active-comment {
     background-color: var(--active-comment-bg-color) !important;
     opacity: 1;
 }
-highlight-chat {
-    font-family: var(--font-family);
-    font-weight: var(--highlight-chat-font-weight);
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    bottom: var(--comment-area-bottom);
-    left: calc(var(--comment-area-size-offset) * -1px);
-    right: calc(var(--comment-area-size-offset) * -1px);
-    width: auto;
-    height: var(--comment-area-height);
-    z-index:99999999999;
-    overflow: hidden;
-    margin: 0px;
-    padding: 40px 50px 40px 220px;
-    background-color: var(--keyer-bg-color);
-    color: #fff;
-    font-size: 30px;
-    transform: scale(var(--comment-scale));
-}
-highlight-chat.preview {
-    border: 1px #ccc solid;
-}
-.hl-c-cont {
-    position: relative;
-    padding: 20px;
-    width: 100%;
-    margin: 0 auto;
-    transition: .5s all cubic-bezier(0.250, 0.250, 0.105, 1.2);
-}
-.hl-c-cont.fadeout {
-    transform: translateY(600px);
-}
-
-.hl-name {
-    position: absolute;
-    top: -20px;
-    left: 50px;
-    font-weight: var(--author-font-weight);
-    background: var(--author-bg-color);
-    color: var(--author-color);
-    padding: 10px;
-    transform: rotate(-0deg);
-    z-index: 1;
-    border-radius: var(--author-border-radius);
-    font-size: var(--author-font-size);
-}
-.hl-name::before {
-    content: '';
-    background: #f6cc0c;
-}
-.hl-message {
-    position: absolute;
-    width: var(--comment-width);
-    font-weight: var(--comment-font-weight);
-    padding: var(--comment-padding);
-    color: var(--comment-color);
-    background-color: var(--comment-bg-color);
-    border-radius: var(--comment-border-radius);
-    font-size: var(--comment-font-size);
-}
-.hl-message img {
-    width: 50px;
-    vertical-align: middle;
-}
-.hl-message img.sticker {
-  width: 120px;
-}
-.hl-message a {
-    color: white;
-}
-.hl-img {
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    left: -60px;
-    width: var(--author-avatar-size);
-    height: var(--author-avatar-size);
-    background-color: var(--author-avatar-border-color);
-    border-radius: 50%;
-    border: 0;
-    padding: var(--author-avatar-border-size);
-}
-.hl-img img {
-    display: block;
-    width: 100%;
-    border-radius: 50%;
-    z-index: 1;
-}
-/* overlay a very faint white layer to bump the blacks above the luma key cutoff */
-.hl-img:after {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    position:absolute;
-    pointer-events: none;
-    z-index: 3;
-}
-.hl-img:after {
-    background: rgba(255,255,255,var(--author-avatar-overlay-opacity));
-    mix-blend-mode: lighten;
-}
-
-.hl-badges {
-  display: inline-block;
-  margin-left: 10px;
-}
-.hl-badges img.yt-live-chat-author-badge-renderer {
-  width: 24px;
-  height: 24px;
-}
-
-.donation {
-    position: absolute;
-    display: block;
-    text-align: center;
-    left: 10px;
-    top: 108px;
-    z-index: 3;
-    min-width: 128px;
-    border-radius: 10px;
-    padding: 30px 5px 0;
-    overflow: hidden;
-    background: linear-gradient(to right, var(--donation-gradient-stop0), var(--donation-gradient-stop1), var(--donation-gradient-stop2));
-    color: var(--donation-color);
-    transform: rotate(-5deg) translateX(-50%);
-}
-
-.donation.silver {
-    background: linear-gradient(to right, #d6d6d6, #f1f1f1, #d6d6d6);
-    color: #434343;    
-}
-.donation.gold {
-    background: linear-gradient(to right, #BF953F, #FCF6BA, #d0aa57, #FBF5B7, #AA771C);
-    color: #4d3400;
-}
-.donation.platinum {
-    background:
-        linear-gradient(
-        -72deg,
-        #dedeff,
-        #ffffff 16%,
-        #dedeff 21%,
-        #ffffff 24%,
-        #555564 27%,
-        #dedeff 36%,
-        #ffffff 45%,
-        #ffffff 60%,
-        #dedeff 72%,
-        #ffffff 80%,
-        #dedeff 84%,
-        #555564);
-    color: #333;
-}
-.donation.diamond {
-    background: linear-gradient(to right, #e5f1fa, #ffffff, #dbe7ec);
-    color: #00374d;
-}
-.donation.emerald {
-    background: linear-gradient(to right, #3fbf3f, #99ed9a, #3fbf3f);
-    color: #115a14;
-}
-
-
-.membership {
-    padding: 10px 10px 5px 10px;
-    font-size: 0.8em;
-}
-.membership-length {
-    font-size: 0.8em;
-}
-.donation::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 18px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.23);
-    border-radius: 10px 10px 0 0;
-    padding: 5px 0 0;
-    display: block;
-    content: var(--donation-label-text);
-    color: var(--donation-label-color);
-}
-.membership::before {
-    content: '';
-}
-.donation::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: 0;
-    height: 200%;
-    width: 1px;
-    background-color: var(--donation-bg-color);
-    box-shadow: 0 0 20px 20px var(--donation-shadow-color);
-    opacity: 0.7;
-    transform: rotate(9deg) translate3D(250px, 0, 0);
-    animation: superchat 3s ease-in-out infinite;
-}
-@keyframes superchat {
-    from {
-        transform: rotate(9deg) translate3D(-250px, 0, 0);
-    }
-}
-
-/* hide chat input to give more space to the chat */
-/*
-#input-panel, yt-live-chat-viewer-engagement-message-renderer {
-	display: none !important;
-}
-*/
 
 yt-live-chat-item-list-renderer {
 	margin-bottom: 20px;
@@ -339,24 +108,9 @@ yt-live-chat-membership-item-renderer[is-deleted] {
     cursor: default;
 }
 
-
-
-
 yt-live-chat-viewer-engagement-message-renderer {
   display: none !important;
 }
-
-
-#featured {
-    position: absolute;
-    z-index: 1000;
-    top: 8px;
-    right: 50px;
-}
-#featured img {
-    vertical-align: middle;
-}
-
 
 .button {
   text-decoration: none;
@@ -365,15 +119,6 @@ yt-live-chat-viewer-engagement-message-renderer {
   border-radius: 4px;
   color: #fff;
   background: #444;
-}
-#pop-out-button {
-  margin-left: 20px;
-}
-#pop-out-url {
-  margin-left: 20px;
-  font-size: 1.2em;
-  width: 400px;
-  border-radius: 4px;
 }
 
 .hidden {
