@@ -1,5 +1,5 @@
 var showOnlyFirstName;
-var remoteServerURL = "wss://localhost:443/";
+var remoteServerURL = "wss://localhost:8443/";
 var version = "0.4.0";
 var config = {};
 var lastID = "";
