@@ -23,7 +23,7 @@ function restoreOptions() {
 
   var properties = ["color","scale","commentBottom","commentHeight","sizeOffset","authorBackgroundColor","authorAvatarBorderColor","authorColor","commentBackgroundColor","commentColor","fontFamily","showOnlyFirstName","highlightWords","popoutURL","serverURL","autoHideSeconds","authorAvatarOverlayOpacity","persistentSessionID","sessionID"];
   chrome.storage.sync.get(properties, function(result){
-    document.querySelector("#color").value = result.color || "#000";
+    document.querySelector("#color").value = result.color || "transparent";
     document.querySelector("#scale").value = result.scale || "1.0";
     document.querySelector("#size-offset").value = result.sizeOffset || "0";
     document.querySelector("#comment-bottom").value = result.commentBottom || "10px";
@@ -37,7 +37,7 @@ function restoreOptions() {
     document.querySelector("#font-family").value = result.fontFamily || "Avenir Next, Helvetica, Geneva, Verdana, Arial, sans-serif";
     document.querySelector("#firstname").checked = result.showOnlyFirstName || false;
     document.querySelector("#auto-hide-seconds").value = result.autoHideSeconds || 0;
-    document.querySelector("#server-url").value = result.serverURL || "wss://localhost:8443/";
+    document.querySelector("#server-url").value = result.serverURL || "wss://127.0.0.1:8443/";
   });
 }
 

@@ -1,6 +1,6 @@
 var showOnlyFirstName;
 var remoteServerURL = "wss://127.0.0.1:8443/";
-var version = "0.4.9";
+var version = "0.4.10";
 var config = {};
 var lastID = "";
 var autoHideTimer = null;
