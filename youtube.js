@@ -1,11 +1,19 @@
 var showOnlyFirstName;
-var remoteServerURL = "wss://localhost:8443/";
-var version = "0.4.0";
+var remoteServerURL = "wss://127.0.0.1:8443/";
+var version = "0.4.9";
 var config = {};
 var lastID = "";
 var autoHideTimer = null;
 
 $("body").unbind("click").on("click", "yt-live-chat-text-message-renderer,yt-live-chat-paid-message-renderer,yt-live-chat-membership-item-renderer,ytd-sponsorships-live-chat-gift-purchase-announcement-renderer,yt-live-chat-paid-sticker-renderer", function () {
+  $(".active-comment").removeClass("active-comment");
+
+  // "Click" on some innocuous part of the page to hide the moderation popup thingy.
+  // YouTube seems to want to pop that up any time you click anywhere on a message.
+  setTimeout(function(){
+    $("yt-live-chat-message-input-renderer").click();
+  }, 200);
+
   clearTimeout(autoHideTimer);
 
   // Don't show deleted messages
