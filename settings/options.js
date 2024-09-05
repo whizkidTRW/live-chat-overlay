@@ -33,7 +33,7 @@ function restoreOptions() {
     document.querySelector("#author-avatar-overlay-opacity").value = result.authorAvatarOverlayOpacity || "0.1";
     document.querySelector("#author-color").value = result.authorColor || "#222";
     document.querySelector("#comment-bg-color").value = result.commentBackgroundColor || "#222";
-    document.querySelector("#comment-color").value = result.commentColor || "#fff";
+    document.querySelector("#comment-color").value = result.commentColor || "#1f1f1f";
     document.querySelector("#font-family").value = result.fontFamily || "Avenir Next, Helvetica, Geneva, Verdana, Arial, sans-serif";
     document.querySelector("#firstname").checked = result.showOnlyFirstName || false;
     document.querySelector("#auto-hide-seconds").value = result.autoHideSeconds || 0;
