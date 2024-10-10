@@ -25,7 +25,7 @@ function restoreOptions() {
   chrome.storage.sync.get(properties, function(result){
     document.querySelector("#color").value = result.color || "transparent";
     document.querySelector("#scale").value = result.scale || "1.0";
-    document.querySelector("#size-offset").value = result.sizeOffset || "0";
+    document.querySelector("#size-offset").value = result.sizeOffset || "-300";
     document.querySelector("#comment-bottom").value = result.commentBottom || "10px";
     document.querySelector("#comment-height").value = result.commentHeight || "30vh";
     document.querySelector("#author-bg-color").value = result.authorBackgroundColor || "#ffa500";
@@ -37,7 +37,7 @@ function restoreOptions() {
     document.querySelector("#font-family").value = result.fontFamily || "Avenir Next, Helvetica, Geneva, Verdana, Arial, sans-serif";
     document.querySelector("#firstname").checked = result.showOnlyFirstName || false;
     document.querySelector("#auto-hide-seconds").value = result.autoHideSeconds || 0;
-    document.querySelector("#server-url").value = result.serverURL || "wss://127.0.0.1:8443/";
+    document.querySelector("#server-url").value = result.serverURL || "ws://127.0.0.1:8443/";
   });
 }
 
