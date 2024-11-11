@@ -28,10 +28,10 @@ function restoreOptions() {
     document.querySelector("#size-offset").value = result.sizeOffset || "-300";
     document.querySelector("#comment-bottom").value = result.commentBottom || "10px";
     document.querySelector("#comment-height").value = result.commentHeight || "30vh";
-    document.querySelector("#author-bg-color").value = result.authorBackgroundColor || "#ffa500";
-    document.querySelector("#author-avatar-border-color").value = result.authorAvatarBorderColor || "#ffa500";
+    document.querySelector("#author-bg-color").value = result.authorBackgroundColor || "#cc9933";
+    document.querySelector("#author-avatar-border-color").value = result.authorAvatarBorderColor || "#cc9933";
     document.querySelector("#author-avatar-overlay-opacity").value = result.authorAvatarOverlayOpacity || "0.1";
-    document.querySelector("#author-color").value = result.authorColor || "#222";
+    document.querySelector("#author-color").value = result.authorColor || "#1f1f1f";
     document.querySelector("#comment-bg-color").value = result.commentBackgroundColor || "#222";
     document.querySelector("#comment-color").value = result.commentColor || "#fff";
     document.querySelector("#font-family").value = result.fontFamily || "Avenir Next, Helvetica, Geneva, Verdana, Arial, sans-serif";

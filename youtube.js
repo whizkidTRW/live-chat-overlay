@@ -1,6 +1,6 @@
 var showOnlyFirstName;
 var remoteServerURL = "ws://127.0.0.1:8443/";
-var version = "0.4.20";
+var version = "0.4.23";
 var config = {};
 var lastID = "";
 var autoHideTimer = null;
@@ -36,7 +36,7 @@ $("body").unbind("click").on("click", "yt-live-chat-text-message-renderer,yt-liv
   }
 
   data.authorImg = $(this).find("#img").attr('src');
-  data.authorImg = data.authorImg.replace("32", "128");
+  data.authorImg = data.authorImg.replace("s32", "s128");
 
   data.message = $(this).find("#message").html();
 
@@ -59,7 +59,7 @@ $("body").unbind("click").on("click", "yt-live-chat-text-message-renderer,yt-liv
     data: data,
     config: config
   }
-    
+  
   webSocket.send(JSON.stringify(remote));
 
   if (config.autoHideSeconds && config.autoHideSeconds > 0) {
