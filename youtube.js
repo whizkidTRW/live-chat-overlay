@@ -1,6 +1,6 @@
 var showOnlyFirstName;
 var remoteServerURL = "ws://127.0.0.1:8443/";
-var version = "0.4.25";
+var version = "0.4.26";
 var config = {};
 var lastID = "";
 var autoHideTimer = null;
@@ -37,6 +37,7 @@ $("body").unbind("click").on("click", "yt-live-chat-text-message-renderer,yt-liv
 
   data.authorImg = $(this).find("#img").attr('src');
   data.authorImg = data.authorImg.replace("=s32", "=s256");
+  data.authorImg = data.authorImg.replace("=s64", "=s256");
 
   data.message = $(this).find("#message").html();
 
